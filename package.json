@@ -11,6 +11,7 @@
     "gulp-dart-sass": "^1.0.2",
     "gulp-file-include": "^2.3.0",
     "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-html-bemlinter": "^2.1.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-libsquoosh": "^1.1.2",
     "gulp-plumber": "1.2.1",

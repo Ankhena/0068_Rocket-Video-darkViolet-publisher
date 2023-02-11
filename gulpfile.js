@@ -14,6 +14,7 @@ import {deleteAsync} from 'del';
 import browser from 'browser-sync';
 import fileinclude from 'gulp-file-include';
 import { htmlValidator } from "gulp-w3c-html-validator";
+import bemlinter from 'gulp-html-bemlinter';
 
 import groupmedia from 'gulp-group-css-media-queries';
 
@@ -97,10 +98,15 @@ export const twigHTML = () => {
     .pipe(browser.stream())
 }
 
-export function validateMarkup() {
+export const validateMarkup = () => {
   return gulp.src('build/*.html')
     .pipe(htmlValidator.analyzer())
     .pipe(htmlValidator.reporter({ throwErrors: true }))
+}
+
+export const lintBEM = () => {
+  return gulp.src('build/*.html')
+    .pipe(bemlinter());
 }
 
 export const js = () => {
