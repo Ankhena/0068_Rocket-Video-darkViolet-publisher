@@ -40,7 +40,7 @@ export const styles = () => {
   return gulp.src('source/scss/style.scss', {sourcemaps: true})
     .pipe(plumber())
     .pipe(scss().on('error', scss.logError))
-    //.pipe(groupmedia())
+    .pipe(groupmedia())
     .pipe(postcss([
       autoprefixer(),
       // csso({
@@ -93,17 +93,17 @@ export const twigHTML = () => {
       }
     }))
     .pipe(gulp.dest('build'))
-    .pipe(browser.stream());;
+    .pipe(browser.stream())
 }
 
 export const js = () => {
   return gulp.src("source/js/script.js", {base: "source", dot: true})
     .pipe(plumber())
     .pipe(fileinclude({
-      prefix: "--"
+      prefix: "&&"
     }))
     .pipe(gulp.dest("build"))
-    //.pipe(terser())
+    .pipe(terser())
     .pipe(browser.stream());
 };
 
