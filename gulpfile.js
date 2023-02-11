@@ -100,7 +100,7 @@ export const js = () => {
   return gulp.src("source/js/script.js", {base: "source", dot: true})
     .pipe(plumber())
     .pipe(fileinclude({
-      prefix: "&&"
+      prefix: "--"
     }))
     .pipe(gulp.dest("build"))
     .pipe(terser())
