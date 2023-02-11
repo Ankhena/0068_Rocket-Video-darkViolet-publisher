@@ -19,6 +19,7 @@
     "gulp-stacksvg": "^2.0.0",
     "gulp-svgmin": "^4.1.0",
     "gulp-terser": "^2.1.0",
+    "gulp-w3c-html-validator": "^5.2.0",
     "gulp-zip": "^5.0.2",
     "postcss": "8.3.11",
     "postcss-csso": "5.0.1",

@@ -13,6 +13,7 @@ import {stacksvg} from 'gulp-stacksvg';
 import {deleteAsync} from 'del';
 import browser from 'browser-sync';
 import fileinclude from 'gulp-file-include';
+import { htmlValidator } from "gulp-w3c-html-validator";
 
 import groupmedia from 'gulp-group-css-media-queries';
 
@@ -94,6 +95,12 @@ export const twigHTML = () => {
     }))
     .pipe(gulp.dest('build'))
     .pipe(browser.stream())
+}
+
+export function validateMarkup() {
+  return gulp.src('build/*.html')
+    .pipe(htmlValidator.analyzer())
+    .pipe(htmlValidator.reporter({ throwErrors: true }))
 }
 
 export const js = () => {
