@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>SVG sprite</title>
+
+  <style>
+    body {
+      background: #eee;
+    }
+    .svg-list {
+      display: flex;
+      flex-wrap: wrap;
+      color: darkgray;
+    }
+    .svg-list svg {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      box-shadow: 0 0 2px 0 gray;
+      background: #eee;
+      fill: green;
+    }
+    .manually {
+      width: 50px;
+      height: 50px;
+      background: #eee;
+    }
+    .manually svg {
+      width: 50px;
+      height: 50px;
+      fill: green;
+    }
+  </style>
+</head>
+<body>
+<div id="svg-sprite" style="display: none;">
+  {% include '/img/sprite.svg' %}
+</div>
+
+<h2>Иконки из спрайта</h2>
+
+<div id="svg-list" class="svg-list">
+
+</div>
+<!--
+Если спрайт собран на svg (не symbol), то use будет работать только из внешнего спрайта.
+Пример:
+-->
+<h2>Пример вставки</h2>
+<div class="manually">
+  <svg>
+    <use xlink:href="img/sprite.svg#icon-zen"></use>
+  </svg>
+</div>
+
+<!--
+Скрипт показывает, какие svg есть в файле
+-->
+
+<script>
+  window.addEventListener('load', function () {
+    let svgItems = document.querySelectorAll('#svg-sprite > svg > svg');
+    let resultTag = document.querySelector('#svg-list');
+    let html;
+
+
+    for (let i = 0; i < svgItems.length; i++) {
+
+      //let svgId = svgItems[i].id;
+      //let svgViewBox = svgItems[i].getAttribute('viewBox');
+
+      let svg = svgItems[i];
+      let svgId = svgItems[i].id;
+
+      let figcaption = document.createElement('figcaption');
+      let figure = document.createElement('figure');
+
+      figcaption.innerHTML = svgId;
+      figure.append(svg);
+      figure.append(figcaption);
+      //console.log(svgId);
+      //html += `<div><svg><use xlink:href="#${svgId}"></use></svg></div>`;
+      //html += `<div>${svg}</div>`
+      //resultTag.append(svg);
+      resultTag.append(figure);
+    }
+
+    //resultTag.innerHTML = html;
+  });
+</script>
+</body>
+</html>
