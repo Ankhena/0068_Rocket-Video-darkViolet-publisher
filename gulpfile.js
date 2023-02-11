@@ -175,22 +175,8 @@ export const copy = () => {
     .pipe(gulp.dest('build'));
 };
 
-// Copy vendor
-export const copyVendor = () => {
-  console.log(colors.magenta('⬤  Copy vendor files to it... ⬤ '));
-  return gulp.src([
-    'source/vendor/**/*.{woff,woff2}',
-    'source/vendor/**/img/**/*.*',
-    'source/vendor/**/js/*.js',
-  ], {
-    base: 'source'
-  })
-    .pipe(gulp.dest('build'));
-};
-
-
 // Clean
-export const clean = () => {
+const clean = () => {
   //console.log('⬤  Deleted files and folders:\n', paths.join('\n'));
   return deleteAsync ('build')
     .then(paths => {
