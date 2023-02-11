@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/_head.html', {
+  "title": "Rocket Video – платформа для монетизации ваших сайтов"
+  })
+</head>
+<body class="landing">
+<section class="intro">
+  @@include('partials/_header.html', {
+  "lang": "Es"
+  })
+
+  <div class="intro__inner container">
+    <div class="intro__description">
+      <h1 class="intro__title"><span class="bright">Rocket</span> Video – платформа для монетизации ваших сайтов</h1>
+
+      @@include('partials/_buttons-block.html')
+
+
+    </div>
+  </div>
+</section>
+
+<section class="earn">
+  <div class="earn__inner container">
+    <h2 class="earn__title"><span class="bright">Зарабатывай</span> вместе с нами!</h2>
+    <ul class="earn__list">
+      @@loop('partials/_earn.html', 'data/earn.json')
+    </ul>
+  </div>
+
+</section>
+
+<section class="statistics">
+  <div class="statistics__inner container">
+    <div class="statistics__description">
+      <h2 class="statistics__title"><span class="bright">Пример</span> статистики</h2>
+      <p class="statistics__comment">*Сумма конвертируется при выплате</p>
+    </div>
+    <figure class="statistics__figure">
+      <img class="" src="img/statistics/statistics.svg" width="890" height="401" alt="">
+    </figure>
+  </div>
+</section>
+
+<section class="stream">
+  <div class="stream__inner container">
+    <h2 class="stream__title">In-stream pre-roll <span class="bright">в вашем плеере</span></h2>
+    <figure class="stream__figure">
+      @@include('partials/_picture.html', {
+      "img": "stream",
+      "format": "png",
+      "folder": "/stream",
+      "width-m": "345",
+      "height-m": "199",
+      "width-d": "1214",
+      "height-d": "698",
+      "alt": ""
+      })
+    </figure>
+  </div>
+</section>
+
+<section class="start">
+  <div class="start__inner container">
+    <h2 class="start__title">Подключение <span class="bright">за 5 минут</span></h2>
+  </div>
+</section>
+
+
+<section class="ready">
+  <div class="ready__inner container">
+    <h2 class="ready__title"><span class="bright">Готово</span></h2>
+
+    @@include('partials/_buttons-block.html')
+  </div>
+</section>
+
+<section class="ask-question">
+  <div class="ask-question__inner">
+    <header class="ask-question__header">
+      <h2 class="ask-question__title">Остались вопросы?</h2>
+      <p class="ask-question__subtitle">Оставьте заявку с помощью формы, и мы свяжемся <br> с вами и обсудим все ваши
+        вопросы.</p>
+    </header>
+
+    <form class="ask-question__form form">
+      <div class="form__input-wrap">
+        <input class="form__input" type="text" placeholder="Имя">
+      </div>
+      <div class="form__input-wrap">
+        <input class="form__input" type="text" placeholder="+7 (999) 999 99 99">
+      </div>
+      <input type="radio" name="communication" id="call" checked>
+      <label for="call"><span aria-hidden="true"></span>Позвоните прямо сейчас</label>
+      <input type="radio" name="communication" id="tg">
+      <label for="tg"><span aria-hidden="true"></span>Напишите мне в Телеграм</label>
+      <button class="ask-question__btn btn btn--bright" type="submit">Отправить</button>
+      <p class="form__conditions">
+        Нажимая на кнопку, вы даете согласие на&nbsp;обработку <a href="#">персональных данных</a> и&nbsp;соглашаетесь c&nbsp;<a
+        href="#">политикой конфиденциальности</a>
+      </p>
+      <p class="form__success <!--hide-->">Успешно отправлено</p>
+    </form>
+  </div>
+</section>
+
+@@include("partials/_footer.html")
+
+@@include("partials/_modal-ask-question.html")
+
+@@include("partials/_scripts.html")
+
+</body>
+</html>

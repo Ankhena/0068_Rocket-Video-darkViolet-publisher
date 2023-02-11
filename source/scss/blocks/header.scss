@@ -1,0 +1,14 @@
+.header {
+  --header-padding: 20px;
+  padding-left: var(--header-padding);
+  padding-right: var(--header-padding);
+  margin-bottom: 10px;
+
+  @include _sm {
+    //--header-padding: 60px;
+  }
+
+  @include _md {
+    margin-bottom: 90px;
+  }
+}

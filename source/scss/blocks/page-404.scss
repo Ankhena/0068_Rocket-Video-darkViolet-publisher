@@ -1,0 +1,49 @@
+.page-404 {
+  position: relative;
+  padding-bottom: 100px;
+  //background: url("../img/404-bg-mobile.svg");
+
+  @include _lg {
+    //background: url("../img/404-bg.svg");
+    padding-bottom: 150px;
+  }
+
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    height: 360px;
+    background: url("../img/404-bg-mobile.svg") no-repeat top left calc(50% - 130px);
+    z-index: -1;
+    pointer-events: none;
+
+    @include _lg {
+      height: 1209px;
+      background: url("../img/404-bg.svg") no-repeat top left calc(50% - 80px);
+    }
+  }
+}
+
+.page-404__inner {
+  @include container;
+  text-align: center;
+}
+
+.page-404__figure {
+  img {
+    width: 100%;
+  }
+}
+
+.page-404__btn {
+  margin-top: 100px;
+  font-size: clampvw(18, 24);
+
+  @include _lg {
+    margin-top: 50px;
+  }
+}

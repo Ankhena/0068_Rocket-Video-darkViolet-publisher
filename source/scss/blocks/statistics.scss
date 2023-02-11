@@ -1,0 +1,39 @@
+.statistics {
+  padding-top: 10px;
+
+  @include _lg {
+    padding-top: 100px;
+  }
+}
+
+.statistics__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+
+  @include _lg {
+    grid-template-columns: 1fr max-content;
+  }
+}
+
+.statistics__title {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.statistics__figure {
+  display: block;
+  //aspect-ratio: 890/411;
+}
+
+.statistics__comment {
+  font-size: clampvw(16, 22);
+  color: $color-inverse;
+  text-align: center;
+  margin-bottom: 30px;
+
+  @include _lg {
+    text-align: left;
+    margin-bottom: 1em;
+  }
+}

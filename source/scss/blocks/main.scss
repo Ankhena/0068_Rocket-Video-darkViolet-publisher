@@ -1,0 +1,8 @@
+.main {
+  @include container;
+  @include container-padding;
+  padding: {
+    top: $padding-v;
+    bottom: $padding-v;
+  }
+}

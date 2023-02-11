@@ -1,0 +1,31 @@
+.intro {
+  padding-bottom: 50px;
+
+  @include _lg {
+    padding-bottom: min-px-vw(270);
+  }
+}
+
+.intro__inner {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 80px;
+
+  @include _md {
+    row-gap: 50px;
+  }
+
+  @include _lg {
+    //
+  }
+}
+
+.intro__title {
+  span {
+    //display: block;
+    @include _md {
+      display: inline;
+    }
+  }
+}

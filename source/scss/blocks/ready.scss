@@ -1,0 +1,23 @@
+.ready {
+  padding-left: var(--x-padding);
+  padding-right: var(--x-padding);
+
+  @include _lg {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.ready__inner {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: url("../img/ellipsys.svg") no-repeat 41px 25px, radial-gradient(122.78% 113.91% at -20.93% -15.58%, rgba(84, 152, 255, 0.21) 0%, rgba(211, 154, 255, 0) 100%);
+  backdrop-filter: blur(13.5px);
+  border-radius: 39px;
+
+  @include _lg {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}

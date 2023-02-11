@@ -1,0 +1,49 @@
+.buttons-block {
+  --indent: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+
+  @include _lg {
+    --indent: 120px;
+    margin-top: 50px;
+  }
+
+  &--mini {
+    --indent: 40px;
+
+    @include _lg {
+      --indent: 90px;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    margin-top: var(--indent);
+    aspect-ratio: 807/36;
+    background: url("../img/play.svg") no-repeat top center / contain;
+
+    @include _lg {
+      //
+    }
+  }
+}
+
+.buttons-block__btn {
+  width: 100%;
+  padding: 1.33em 2.22em;
+  margin-bottom: 12px;
+  font-size: clampvw(18, 24);
+  white-space: nowrap;
+
+  @include _lg {
+    width: auto;
+    padding: 33px 55px;
+  }
+}

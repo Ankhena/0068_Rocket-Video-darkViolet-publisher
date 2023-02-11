@@ -1,0 +1,265 @@
+:root {
+  --x-padding: 16px;
+
+  @include _lg {
+    --x-padding: 20px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*:focus {
+  //убирает голубую подсветку при тапе на смартфонах
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+//* {
+//  --out-width: 2px;
+//  outline: var(--out-width) solid red;
+//  outline-offset: calc(0px - var(--out-width));
+//  &::before, &::after {
+//    outline: var(--out-width) solid lime;
+//    outline-offset: calc(0px - var(--out-width));
+//  }
+//}
+
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased; //правильное отображение шрифтов
+  -moz-osx-font-smoothing: grayscale; //правильное отображение шрифтов
+  text-rendering: optimizeLegibility; //правильное отображение шрифтов
+  text-size-adjust: none; //запрет авто-увеличения текста на мобилках
+  scroll-behavior: smooth; //плавная прокрутка к якорям
+  //overflow-x: hidden;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  //stylelint-disable-next-line
+  min-height: -webkit-fill-available; //  mobile viewport bug fix (webkit)
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-family: $font-main;
+  background: $color-bg url("../img/bg-mobile.svg") top center;
+  color: $color;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  @include _md {
+    background: $color-bg url("../img/bg-desktop.svg") top center;
+  }
+}
+
+.body-with-open-modal {
+  overflow: hidden;
+}
+
+body > section {
+  --section-margin: 50px;
+  position: relative;
+  padding-bottom: var(--section-margin);
+  z-index: 2;
+
+  @include _lg {
+    --section-margin: 200px;
+  }
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+  height: auto;
+}
+
+ul {
+  @include ul-reset;
+}
+
+@mixin input-style {
+  max-width: 100%;
+  padding: 1.7em 2.5em;
+  background-color: $color-input-bg;
+  border: none;
+  border-radius: 15px;
+  font-family: $font-input;
+
+  //font-size: 1.6rem; //iOS
+  //font-size: inherit;
+  font-size: clampvw(14, 18);
+  color: $color-input;
+  font-weight: bold;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    border-color: #cccccc;
+    color: #cccccc;
+    opacity: 0.8;
+  }
+}
+
+#{$input-list} {
+  line-height: 1;
+
+  @include input-style;
+}
+
+textarea {
+  min-height: 150px;
+  max-height: 400px;
+  line-height: 1.5;
+  //resize: vertical;
+  resize: none;
+
+  @include input-style;
+}
+
+input::placeholder {
+  color: $color-placeholder;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+textarea::placeholder {
+  color: $color-placeholder;
+}
+
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+#{$input-list},
+textarea,
+[contenteditable] {
+  caret-color: $color-caret;
+}
+
+button {
+  appearance: none;
+}
+
+select {
+  //appearance: none; //чтобы убрать стандартную галочку селекта, использовать, только если есть замена
+  @include input-style;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+a[href^="tel"] {
+  color: inherit;
+  text-decoration: none;
+}
+
+figure {
+  margin: 0;
+}
+
+dl {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+dd {
+  margin-left: 0;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.container {
+  @include container;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-family: $font-title;
+  //font-size: 48px;
+  font-size: clampvw(23, 80);
+  line-height: 1.5;
+  font-weight: 400;
+  color: $color-inverse;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0.78em;
+  font-family: $font-title;
+  font-size: clampvw(30, 80);
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  color: $color-inverse;
+
+  @include _lg {
+    //
+  }
+}
+
+.bright {
+  color: $bright;
+}
+
+.nobr {
+  white-space: nowrap;
+}
+
+.to-top {
+  display: none;
+
+  @include _lg {
+    position: fixed;
+    bottom: 50px;
+    left: 20px;
+    display: block;
+    padding: 16px 30px;
+    background: linear-gradient(0deg, #2b2548, #2b2548), linear-gradient(290.71deg, rgba(67, 56, 118, 0) -23.07%, rgba(35, 30, 57, 0.48) 147.25%);
+    color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    opacity: 0.7;
+    z-index: 2;
+    visibility: hidden;
+  }
+
+  &--show {
+    @include _lg {
+      visibility: visible;
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 13px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 12px;
+    background: url("data:image/svg+xml,%3Csvg width='24' height='13' viewBox='0 0 24 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.5859 12.1428L12.7069 2.26381C12.5167 2.08132 12.2634 1.97942 11.9999 1.97942C11.7363 1.97942 11.483 2.08132 11.2929 2.26381L1.41986 12.1368L0.00585938 10.7228L9.87886 0.849812C10.4505 0.304338 11.2102 0 12.0004 0C12.7905 0 13.5502 0.304338 14.1219 0.849812L23.9999 10.7288L22.5859 12.1428Z' fill='%237B70AB'/%3E%3C/svg%3E%0A") no-repeat center / contain;
+  }
+}

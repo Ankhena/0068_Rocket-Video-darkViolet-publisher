@@ -1,0 +1,83 @@
+.footer {
+  @include container;
+  margin-top: 80px;
+
+  @include _lg {
+    margin-top: 0;
+  }
+}
+
+.footer__inner {
+  position: relative;
+  display: grid;
+  column-gap: 20px;
+  row-gap: 40px;
+  grid-template-columns: 1fr;
+  border-radius: 61px 61px 0 0;
+  background: #25203d;
+  padding-top: 35px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 35px;
+
+  @include _md {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  @include _lg {
+    font-size: clampvw(12, 14);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+    border-radius: 60px 60px 0 0;
+    background: radial-gradient(101.3% 77.18% at -8.57% -10.85%, rgba(111, 142, 255, 0.86) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(323.61deg, rgba(71, 42, 154, 0.54) -21.57%, rgba(255, 255, 255, 0) 103.04%);
+    z-index: -1;
+  }
+}
+
+.footer__links {
+  grid-column: 1/-1;
+  display: grid;
+  row-gap: 1em;
+  margin: 0;
+  font-size: 14px;
+
+  @include _lg {
+    display: flex;
+    column-gap: 50px;
+  }
+
+  a {
+    display: block;
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #{$color}50;
+    text-align: center;
+
+    @include _lg {
+      text-align: left;
+    }
+  }
+}
+
+.footer__copyright {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.2em;
+  text-align: center;
+
+  @include _lg {
+    text-align: left;
+  }
+}

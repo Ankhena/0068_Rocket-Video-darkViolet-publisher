@@ -1,0 +1,219 @@
+@use "sass:math"; // для подключения модуля math в scss
+
+@mixin container {
+
+  width: 100%;
+  //max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--x-padding);
+  padding-right: var(--x-padding);
+
+  //outline: 1px solid deepskyblue;
+  //overflow-x: hidden;
+
+  @include _lg {
+    //max-width: $lg;
+    //max-width: 1480px;
+    //max-width: clampvw(1000, 1480);
+    max-width: clampvw(770, 1520); // чтобы были пропорциональные поля
+    //max-width: 1107px; //1067 + 20 + 20
+  }
+}
+
+@mixin container-padding {
+  padding: {
+    left: $padding-g;
+    right: $padding-g;
+  }
+}
+
+@mixin visually-hidden {
+  position: fixed;
+  transform: scale(0);
+}
+
+//Ну до box-suppress самым лаконичным видимо будет это:
+//.visually-hidden {
+//  position: fixed;
+//  transform: scale(0);
+//}
+
+
+//vw
+$layout-width: 1900; //указываем ширину макета, от которой вычисляем vw
+
+@function vw($size) {
+  @return #{(math.div($size, $layout-width)*100)}vw;
+}
+
+@function clampvw($min, $max) {
+  @return clamp(#{$min}px,  #{(math.div($max, $layout-width)*100)}vw, #{$max}px);
+}
+
+
+// Применение функций vw и clamp
+//.dd {
+//  font-size: vw(120);
+//}
+//.dd {
+//  font-size: clampvw(18,120);
+//}
+
+
+// функция, которая переведет px в vw
+// и в итоге запретит увеличиваться больше, чем было px при макетной ширине
+// не нужно будет писать лишние media
+// тут используется в основном для padding крупных секций
+@function min-px-vw($size) {
+  // но нужно экранировать min, т.к. зарезервированная функция scss
+  @return #{"min("}$size+px, (math.div($size, $layout-width)*100)+vw#{")"};
+}
+
+@mixin ul-reset {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+@mixin centerer($horizontal: true, $vertical: true) {
+  position: absolute;
+
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+//// Использование
+//.both {
+//  @include centerer;
+//}
+//
+//.horizontal {
+//  @include centerer(true, false);
+//}
+//
+//.vertical {
+//  @include centerer(false, true);
+//}
+
+//media
+
+@mixin _esm {
+  @media (min-width: $esm) {
+    @content;
+  }
+}
+
+@mixin _sm {
+  @media (min-width: $sm) {
+    @content;
+  }
+}
+
+@mixin _md {
+  @media (min-width: $md) {
+    @content;
+  }
+}
+
+@mixin _lg {
+  @media (min-width: $lg) {
+    @content;
+  }
+}
+
+//@media (min-width: 1390px) {
+//@mixin _lg {
+//  @media (min-width: 1300px) {
+//    @content;
+//  }
+//}
+
+@mixin _elg {
+  @media (min-width: $elg) {
+    @content;
+  }
+}
+
+@mixin _lg-max {
+  @media (max-width: ($lg - 1px)) {
+    @content;
+  }
+}
+
+@mixin _esm-max {
+  @media (max-width: $esm) {
+    @content;
+  }
+}
+
+//
+//@mixin _320 {
+//  @media (min-width: 320px) {
+//    @content;
+//  }
+//}
+//
+//@mixin _480 {
+//  @media (min-width: 480px) {
+//    @content;
+//  }
+//}
+//
+//@mixin _600 {
+//  @media (min-width: 600px) {
+//    @content;
+//  }
+//}
+//
+//@mixin _768 {
+//  @media (min-width: 768px) {
+//    @content;
+//  }
+//}
+//
+//@mixin _980 {
+//  @media (min-width: 980px) {
+//    @content;
+//  }
+//}
+//
+//@mixin _1170 {
+//  @media (min-width: 1170px) {
+//    @content;
+//  }
+//}
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+////Usage:
+//.selector {
+//  $string: 'The answer to life the universe and everything is 42.';
+//  content: str-replace($string, 'e', 'xoxo');
+//}
+////Result:
+//.selector {
+//  content: "Thxoxo answxoxor to lifxoxo thxoxo univxoxorsxoxo and xoxovxoxorything is 42.";
+//}
+
+//Для цвета в SVG
+//
+//$bright: #6dace2;
+//$fill: str-replace($bright, '#', '%23');
+//в самой svg fill='#{$fill}'

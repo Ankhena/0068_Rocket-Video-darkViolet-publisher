@@ -1,0 +1,139 @@
+.ask-question {
+  padding-top: 50px;
+
+  @include _lg {
+    // дикое экранирование новой css функции max в сочетании с функцией scss для перевода в vw
+    //padding-top: #{'min('vw(150)}, #{'150px)'};
+    // или напишем и используем scss функцию
+    padding-top: min-px-vw(150);
+    padding-bottom: min-px-vw(200);
+  }
+
+  // когда модалкой
+  .modal & {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .form__input-wrap--textarea {
+    grid-column: 1/-1;
+  }
+
+  .form__textarea {
+    width: 100%;
+  }
+
+  h2 {
+    text-align: left;
+  }
+}
+
+.ask-question__inner {
+  @include container;
+
+  @include _md {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 50px;
+    //column-gap: 9.8vw;
+  }
+
+  @include _lg {
+    //
+  }
+
+  @include _elg {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 120px;
+  }
+}
+
+.ask-question__title {
+  grid-column: 1/-1;
+  margin-bottom: 12px;
+  font-size: clampvw(22, 40);
+  font-weight: 400;
+}
+
+.ask-question__subtitle {
+  font-size: clampvw(14, 18);
+
+  br {
+    display: none;
+
+    @include _lg {
+      display: inline;
+    }
+  }
+}
+
+.ask-question__form {
+  display: grid;
+  row-gap: 20px;
+
+  //@include _md {
+  @media (min-width: 980px) {
+    grid-template-columns: 315px 1fr;
+    column-gap: 20px;
+  }
+
+  // когда модалкой
+  .modal & {
+    .form__conditions {
+      //grid-column: 1/-1;
+      align-self: center;
+    }
+  }
+
+  .btn {
+    font-size: 18px;
+  }
+}
+
+.ask-question__btn {
+  align-self: start;
+  padding-left: 1.3em;
+  padding-right: 1.3em;
+
+  // когда модалкой
+  .modal & {
+    //
+  }
+}
+
+.ask-question__links {
+  display: grid;
+  row-gap: 12px;
+  margin-bottom: 40px;
+
+  @include _lg {
+    grid-template-columns: auto auto;
+    column-gap: 80px;
+    margin-bottom: 0;
+  }
+}
+
+.ask-question__link {
+  font-size: clampvw(16, 22);
+  color: $color-inverse;
+  white-space: nowrap;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 44px;
+    height: 44px;
+    margin-right: 24px;
+    background: #383057 var(--bgi) no-repeat center;
+    border-radius: 9px;
+  }
+
+  &--tg {
+    --bgi: url("../img/telegram.svg");
+  }
+
+  &--email {
+    --bgi: url("../img/email.svg");
+  }
+}

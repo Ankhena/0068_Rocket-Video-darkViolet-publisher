@@ -1,0 +1,54 @@
+$font-main: "Inter", "arial", "helvetica", sans-serif;
+//$font-second: "Neue Machina", arial, helvetica, sans-serif;
+//$font-condensed: "Open Sans Condensed", "Open Sans", arial, helvetica, sans-serif;
+$font-title: $font-main;
+$font-btn: $font-main;
+$font-input: $font-main;
+
+$input-list: 'input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="date"], input[type="search"], input[type="password"], input[type="number"], input[type="time"], input[type="month"], input[type="week"]';
+
+$transparent: rgba(0, 0, 0, 0);
+$color-inverse: #ffffff;
+$gray-light: #ececec;
+$gray: #c8c8c8;
+$gray-semi: #a7a7a7;
+$gray-dark: #373737;
+$gray-darken: #191919;
+
+$bright: #ff6392;
+$light: #7b70ab;
+$dark: #383057;
+
+//$bright2: #941555;
+//$bright-light: #FF6AAC;
+$dark-color: #040303;
+
+//$dark: #192f44;
+$danger: $bright;
+
+$color: $light;
+
+//$color-bg: $dark-color;
+$color-bg: #231e39;
+$color-nav-link: #5f587e;
+$color-link: $bright;
+$color-placeholder: $color;
+$color-caret: $bright;
+$color-input: $color;
+$color-input-border: $bright;
+$color-input-bg: #362d54;
+
+$padding-g: 20px;
+$padding-v: 30px;
+
+//extra large
+$elg: 1526px;
+//$lg: 1526px;  // +  !!!!!!!!!  переключается 1300
+//$lg: 1300px;  // +  !!!!!!!!!  переключается 1300
+$lg: 1000px;  // +  !!!!!!!!!  переключается 1000 (чтобы на 1024 был уже десктоп)
+$md: 720px; // +  intro, augmented-reality, analytics__list, benefits__list, audit__item, protection__list
+$sm: 540px; // + protection__title
+$esm: 360px; //+ footer__inner
+
+
+// + 480px footer__social

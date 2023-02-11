@@ -1,0 +1,10 @@
+.logo {
+  width: 147px;
+  height: auto;
+  margin-bottom: 24px;
+
+  @include _lg {
+    width: auto;
+    height: auto;
+  }
+}

@@ -1,0 +1,49 @@
+//@import (css) url('https://fonts.googleapis.com/css?family=Fira+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,700,700i,900,900i');
+
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma); /* stylelint-disable-line function-url-quotes */
+  }
+
+  @font-face {
+    font-family: quote($name);
+    src: $src;
+    font-weight: $weight;
+    font-style: $style;
+    // font-display: block;
+    font-display: swap;
+  }
+}
+
+//@include font-face("Montserrat", "/app/fonts/Montserrat/Montserrat-Bold", bold, normal, woff2 woff ttf eot svg);
+
+//@include font-face("Neue Machina", "../fonts/NeueMachina-Regular", 400, normal, woff2 woff);
+//@include font-face("Neue Machina", "../fonts/NeueMachina-Medium", 500, normal, woff2 woff);
+//@include font-face("Neue Machina", "../fonts/NeueMachina-Bold", 700, normal, woff2 woff);
+
+@include font-face("inter", "../fonts/Inter-Regular", 400, normal, woff2 woff);

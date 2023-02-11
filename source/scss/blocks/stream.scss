@@ -1,0 +1,19 @@
+.stream {
+  padding-top: 50px;
+
+  @include _lg {
+    padding-top: 100px;
+  }
+}
+
+.stream__title {
+  margin-bottom: 32px;
+
+  @include _lg {
+    margin-bottom: revert;
+  }
+}
+
+.stream__figure {
+  text-align: center;
+}

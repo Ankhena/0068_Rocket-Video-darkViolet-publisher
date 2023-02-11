@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('partials/_head.html', {
+  "title": "Rocket Video – платформа для монетизации ваших сайтов"
+  })
+</head>
+<body class="page">
+
+@@include('partials/_header.html', {
+"lang": "Ru"
+})
+
+<main class="page-404">
+
+  <div class="page-404__inner">
+    <figure class="page-404__figure">
+      <picture>
+        <source media="(min-width: 1526px)" srcset="img/404.svg">
+        <img class="page-header__logo-img main-nav__logo-img" src="img/404-mobile.svg" alt="">
+      </picture>
+    </figure>
+    <a class="page-404__btn btn btn--accent" href="/">Вернуться на главную</a>
+  </div>
+</main>
+
+@@include("partials/_footer.html")
+
+@@include("partials/_scripts.html")
+
+</body>
+</html>
