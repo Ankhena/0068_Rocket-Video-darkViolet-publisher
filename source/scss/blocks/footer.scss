@@ -15,10 +15,7 @@
   grid-template-columns: 1fr;
   border-radius: 61px 61px 0 0;
   background: #25203d;
-  padding-top: 35px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 35px;
+  padding: 35px 40px;
 
   @include _md {
     display: flex;
@@ -30,7 +27,7 @@
   }
 
   @include _lg {
-    font-size: clampvw(12, 14);
+    //
   }
 
   &::before {
@@ -51,7 +48,7 @@
   display: grid;
   row-gap: 1em;
   margin: 0;
-  font-size: 14px;
+  font-size: clampvw(12,14);
 
   @include _lg {
     display: flex;
@@ -64,6 +61,10 @@
     text-decoration: underline;
     text-decoration-color: #{$color}50;
     text-align: center;
+
+    @include _md {
+      text-align: right;
+    }
 
     @include _lg {
       text-align: left;

@@ -50,13 +50,13 @@ body {
   font-size: 1.4rem;
   line-height: 1.5;
   font-family: $font-main;
-  background: $color-bg url("../img/bg-mobile.svg") top center;
+  background: $color-bg url("../img/bg-mobile.svg") top center / auto;
   color: $color;
   overflow-x: hidden;
   overflow-y: auto;
 
   @include _md {
-    background: $color-bg url("../img/bg-desktop.svg") top center;
+    background: $color-bg url("../img/bg-desktop.svg") top center / auto;
   }
 }
 

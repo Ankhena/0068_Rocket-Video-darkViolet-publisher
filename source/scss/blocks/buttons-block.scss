@@ -2,6 +2,7 @@
   --indent: 100px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   column-gap: 20px;
   width: fit-content;
   margin-left: auto;
@@ -10,7 +11,7 @@
 
   @include _lg {
     --indent: 120px;
-    margin-top: 50px;
+    margin-top: 70px;
   }
 
   &--mini {
@@ -43,7 +44,7 @@
   white-space: nowrap;
 
   @include _lg {
-    width: auto;
+    width: 395px;
     padding: 33px 55px;
   }
 }

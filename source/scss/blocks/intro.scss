@@ -11,9 +11,11 @@
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 80px;
+  padding-top: 80px;
 
   @include _md {
     row-gap: 50px;
+    padding-top: 0;
   }
 
   @include _lg {

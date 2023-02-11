@@ -355,7 +355,6 @@ const build = (done) => gulp.series(
   clean,
   copy,
   copyVendor,
-  sasssvg,
   styles,
   sprite,
   html,

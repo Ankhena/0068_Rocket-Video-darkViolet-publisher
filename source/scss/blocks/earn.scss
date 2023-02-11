@@ -20,10 +20,14 @@
   justify-content: center;
   column-gap: 20px;
   row-gap: 40px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 
   @include _lg {
     grid-template-columns: repeat(5, 1fr);
     column-gap: 70px;
+    max-width: unset;
   }
 }
 

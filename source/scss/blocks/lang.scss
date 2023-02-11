@@ -9,13 +9,17 @@
 }
 
 .lang__selected {
-  padding: 17px;
+  padding: 8px;
   border: none;
   border-radius: var(--radius);
   font-size: inherit;
   line-height: inherit;
   background: $dark;
   color: inherit;
+
+  @include _lg {
+    padding: 17px;
+  }
 
   &::after {
     content: "";

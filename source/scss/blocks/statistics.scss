@@ -11,14 +11,17 @@
   grid-template-columns: 1fr;
   align-items: center;
 
-  @include _lg {
+  @include _elg {
     grid-template-columns: 1fr max-content;
   }
 }
 
 .statistics__title {
   margin-bottom: 30px;
-  text-align: left;
+
+  @include _lg {
+    text-align: left;
+  }
 }
 
 .statistics__figure {
