@@ -948,6 +948,7 @@ h2 {
 
 .statistics__figure {
   display: block;
+  text-align: center;
 }
 
 .statistics__comment {
@@ -1369,15 +1370,6 @@ h2 {
     padding-top: 100px;
   }
 
-  .statistics__title {
-    text-align: left;
-  }
-
-  .statistics__comment {
-    text-align: left;
-    margin-bottom: 1em;
-  }
-
   .stream {
     padding-top: 100px;
   }
@@ -1507,6 +1499,20 @@ h2 {
 @media (min-width: 1526px) {
   .statistics__inner {
     grid-template-columns: 1fr max-content;
+    column-gap: 50px;
+  }
+
+  .statistics__title {
+    text-align: left;
+  }
+
+  .statistics__figure {
+    text-align: left;
+  }
+
+  .statistics__comment {
+    text-align: left;
+    margin-bottom: 1em;
   }
 
   .ask-question__inner {
