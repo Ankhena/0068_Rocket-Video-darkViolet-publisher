@@ -13,13 +13,14 @@
 
   @include _elg {
     grid-template-columns: 1fr max-content;
+    column-gap: 50px;
   }
 }
 
 .statistics__title {
   margin-bottom: 30px;
 
-  @include _lg {
+  @include _elg {
     text-align: left;
   }
 }
@@ -27,6 +28,11 @@
 .statistics__figure {
   display: block;
   //aspect-ratio: 890/411;
+  text-align: center;
+
+  @include _elg {
+    text-align: left;
+  }
 }
 
 .statistics__comment {
@@ -35,7 +41,7 @@
   text-align: center;
   margin-bottom: 30px;
 
-  @include _lg {
+  @include _elg {
     text-align: left;
     margin-bottom: 1em;
   }

@@ -227,19 +227,9 @@ const server = (done) => {
     open: true,
     ui: false,
     //browser: 'chrome'
-    browser: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
+    browser: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+
   });
-
-  // gulp.watch('source/**.*.html').on('change', gulp.series(html, browser.reload));
-  // //gulp.watch('source/**/*.twig').on('change', gulp.series(twigHTML, browser.reload));
-  // //gulp.watch('source/**/*.twig').on('change', gulp.series(html, browser.reload));
-  // //добавили twigHTML в отслеживание css, чтобы менялась версия css
-  // //gulp.watch('source/scss/**/*.scss').on('change', gulp.series(styles, twigHTML, browser.reload) );
-  // gulp.watch('source/scss/**/*.scss').on('change', gulp.series(styles, html, browser.reload));
-  // gulp.watch('source/js/**/*.js').on('change', gulp.series(js, browser.reload));
-  // gulp.watch('source/js/*.js').on('change', gulp.series(jsCopy, browser.reload));
-  // gulp.watch('source/**/*.php').on('change', gulp.series(copy, browser.reload));
-
   done();
 }
 
@@ -251,14 +241,14 @@ const reload = (done) => {
 
 // Watcher
 const watcher = () => {
-  gulp.watch('source/sass/**/*.scss', gulp.series(styles));
-  gulp.watch('source/*.html', gulp.series(html));
+  gulp.watch('source/scss/**/*.scss', gulp.series(styles, reload));
+  gulp.watch('source/*.html', gulp.series(html, reload));
   gulp.watch('source/partials/**/*.html', gulp.series(html, reload));
 
   //gulp.watch('source/**/*.twig', gulp.series(twigHTML));
-  gulp.watch('source/js/**/*.js', gulp.series(js));
-  gulp.watch('source/js/*.js', gulp.series(jsCopy));
-  gulp.watch('source/**/*.php', gulp.series(copy));
+  gulp.watch('source/js/**/*.js', gulp.series(js, reload));
+  gulp.watch('source/js/*.js', gulp.series(jsCopy, reload));
+  gulp.watch('source/**/*.php', gulp.series(copy, reload));
 };
 
 export const build = (done) => gulp.series(
