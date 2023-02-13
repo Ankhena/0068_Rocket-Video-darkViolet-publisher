@@ -8,14 +8,19 @@
 <body class="landing">
 <section class="intro">
   @@include('partials/_header.html', {
-  "lang": "Ru"
+  "lang": "Ru",
+  "login": "Войти"
   })
 
   <div class="intro__inner container">
     <div class="intro__description">
       <h1 class="intro__title"><span class="bright">Rocket</span> Video – платформа для монетизации ваших сайтов</h1>
 
-      @@include('partials/_buttons-block.html', {"class": ""})
+      @@include('partials/_buttons-block.html', {
+      "class": "",
+      "connect": "Подключиться",
+      "write": "Написать нам"
+      })
 
     </div>
   </div>
@@ -81,13 +86,21 @@
   <div class="ready__inner container">
     <h2 class="ready__title"><span class="bright">Готово</span></h2>
 
-    @@include('partials/_buttons-block.html', {"class": "buttons-block--mini"})
+    @@include('partials/_buttons-block.html', {
+    "class": "buttons-block--mini",
+    "connect": "Подключиться",
+    "write": "Написать нам"
+    })
   </div>
 </section>
 
 <a class="to-top" href="#">Вверх</a>
 
-@@include("partials/_footer.html")
+@@include("partials/_footer.html", {
+"rules": "Правила оказания услуг",
+"termsOfUse": "Пользовательское соглашение",
+"personalData": "Политика обработки персональных данных"
+})
 
 @@include("partials/_modal-ask-question.html")
 
