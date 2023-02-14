@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   @@include('partials/_head.html', {
-  "title": "Rocket Video – платформа для монетизации ваших сайтов"
+  "title": "Rocket Video – a platform for monetizing your websites"
   })
 </head>
 <body class="landing">
@@ -14,12 +14,12 @@
 
   <div class="intro__inner container">
     <div class="intro__description">
-      <h1 class="intro__title"><span class="bright">Rocket</span> Video – платформа для монетизации ваших сайтов</h1>
+      <h1 class="intro__title"><span class="bright">Rocket</span> Video – a platform for monetizing your websites</h1>
 
       @@include('partials/_buttons-block.html', {
       "class": "",
-      "connect": "",
-      "write": ""
+      "connect": "Connect",
+      "write": "Write us"
       })
 
     </div>
@@ -28,9 +28,9 @@
 
 <section class="earn">
   <div class="earn__inner container">
-    <h2 class="earn__title"><span class="bright">Зарабатывай</span> вместе с&nbsp;нами!</h2>
+    <h2 class="earn__title"><span class="bright">Earn</span> with us!</h2>
     <ul class="earn__list">
-      @@loop('partials/_earn.html', 'data/earn.json')
+      @@loop('partials/_earn.html', 'data/earn_en.json')
     </ul>
   </div>
 
@@ -39,18 +39,18 @@
 <section class="statistics">
   <div class="statistics__inner container">
     <div class="statistics__description">
-      <h2 class="statistics__title">Пример <span class="bright">статистики</span></h2>
-      <p class="statistics__comment">*Сумма конвертируется при выплате</p>
+      <h2 class="statistics__title">Example <span class="bright">statistics</span></h2>
+      <p class="statistics__comment">*The amount is converted on payment</p>
     </div>
     <figure class="statistics__figure">
-      <img class="" src="img/statistics/statistics.svg" width="890" height="401" alt="">
+      <img class="" src="img/statistics/statistics-en.svg" width="890" height="401" alt="">
     </figure>
   </div>
 </section>
 
 <section class="stream">
   <div class="stream__inner container">
-    <h2 class="stream__title">In-stream pre-roll <span class="bright">в&nbsp;вашем плеере</span></h2>
+    <h2 class="stream__title">In-stream pre-roll <span class="bright">in your player</span></h2>
     <figure class="stream__figure">
       @@include('partials/_picture.html', {
       "img": "stream",
@@ -68,15 +68,15 @@
 
 <section class="start">
   <div class="start__inner container">
-    <h2 class="start__title">Подключение <span class="bright">за 5 минут</span></h2>
+    <h2 class="start__title">Connect in <span class="bright">5 minutes</span></h2>
 
     <ol class="start__list">
-      <li class="start__item">Регистрируетесь в кабинете и&nbsp;получаете партнёрский id</li>
-      <li class="start__item">Получаете партнёрскую ссылку для запроса VAST с рекламой</li>
-      <li class="start__item">Следуя инструкции встраиваете у себя наш код</li>
+      <li class="start__item">Register in the cabinet and get an&nbsp;account id</li>
+      <li class="start__item">Receive an affiliate link for a&nbsp;VAST request with ads</li>
+      <li class="start__item">Follow the instructions and embed our code</li>
     </ol>
     <p class="start__example">
-      Пример ссылки
+      Example link:
       <span>https://rocketme.top/vast.php?partner_id=nubmer&referrer=site.com</span>
     </p>
   </div>
@@ -84,22 +84,22 @@
 
 <section class="ready">
   <div class="ready__inner container">
-    <h2 class="ready__title"><span class="bright">Готово</span></h2>
+    <h2 class="ready__title"><span class="bright">Done!</span></h2>
 
     @@include('partials/_buttons-block.html', {
     "class": "buttons-block--mini",
-    "connect": "Подключиться",
-    "write": "Написать нам"
+    "connect": "Connect",
+    "write": "Write us"
     })
   </div>
 </section>
 
-<a class="to-top" href="#">Вверх</a>
+<a class="to-top" href="#">Up</a>
 
 @@include("partials/_footer.html", {
-"rules": "1",
-"termsOfUse": "2",
-"personalData": "3"
+"rules": "Terms of service",
+"termsOfUse": "User Agreement",
+"personalData": "Personal information processing policy"
 })
 
 @@include("partials/_modal-ask-question.html")
